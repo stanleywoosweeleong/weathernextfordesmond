@@ -116,7 +116,7 @@
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%237dd3fc%22/><path d=%22M0 55 L100 55 L100 100 L0 100 Z%22 fill=%22%2322c55e%22/><path d=%22M0 70 L100 70 L100 100 L0 100 Z%22 fill=%22%2315803d%22/><circle cx=%2270%22 cy=%2232%22 r=%2213%22 fill=%22%23fbbf24%22/><g stroke=%22%23fbbf24%22 stroke-width=%222.5%22 stroke-linecap=%22round%22><line x1=%2270%22 y1=%2210%22 x2=%2270%22 y2=%2216%22/><line x1=%2286%22 y1=%2232%22 x2=%2292%22 y2=%2232%22/><line x1=%2248%22 y1=%2232%22 x2=%2254%22 y2=%2232%22/><line x1=%2284%22 y1=%2218%22 x2=%2288%22 y2=%2214%22/><line x1=%2256%22 y1=%2218%22 x2=%2252%22 y2=%2214%22/></g><ellipse cx=%2225%22 cy=%2228%22 rx=%2213%22 ry=%225%22 fill=%22%23fff%22/><ellipse cx=%2220%22 cy=%2232%22 rx=%228%22 ry=%224%22 fill=%22%23fff%22/><line x1=%2250%22 y1=%2270%22 x2=%2220%22 y2=%22100%22 stroke=%22%23166534%22 stroke-width=%221%22 opacity=%220.5%22/><line x1=%2250%22 y1=%2270%22 x2=%2250%22 y2=%22100%22 stroke=%22%23166534%22 stroke-width=%221%22 opacity=%220.5%22/><line x1=%2250%22 y1=%2270%22 x2=%2280%22 y2=%22100%22 stroke=%22%23166534%22 stroke-width=%221%22 opacity=%220.5%22/></svg>">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <style>
         :root {
@@ -670,6 +670,110 @@
     </style>
 </head>
 <body class="flex flex-col">
+
+    <!-- ============================================================ -->
+    <!-- Boot screen — paints immediately, before Tailwind / Firebase  -->
+    <!-- resolve. Inline styles only (no dependency on any CDN CSS).   -->
+    <!-- Removed by window.hideBootScreen(), called from initApp().    -->
+    <!-- ============================================================ -->
+    <div id="boot-screen" style="position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f0dcc0;transition:opacity .4s ease;">
+        <svg width="120" height="120" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="border-radius:24px;box-shadow:0 6px 20px rgba(0,0,0,.15);">
+            <rect width="512" height="512" fill="#f0dcc0"/>
+            <g>
+                <g stroke="#f5b13d" stroke-width="13" stroke-linecap="round">
+                    <line x1="430" y1="42" x2="430" y2="80"/>
+                    <line x1="430" y1="162" x2="430" y2="200"/>
+                    <line x1="367" y1="121" x2="405" y2="121"/>
+                    <line x1="455" y1="121" x2="493" y2="121"/>
+                    <line x1="385" y1="76" x2="412" y2="103"/>
+                    <line x1="448" y1="139" x2="475" y2="166"/>
+                    <line x1="475" y1="76" x2="448" y2="103"/>
+                    <line x1="412" y1="139" x2="385" y2="166"/>
+                </g>
+                <circle cx="430" cy="121" r="34" fill="#f7c948"/>
+            </g>
+            <path d="M0 322 C 90 286, 190 300, 290 312 C 380 322, 450 300, 512 312 L512 512 L0 512 Z" fill="#7a9b6e"/>
+            <path d="M0 360 C 110 322, 220 348, 330 356 C 410 362, 470 344, 512 352 L512 512 L0 512 Z" fill="#5b8d4e"/>
+            <path d="M0 392 C 130 360, 300 372, 512 388 L512 512 L0 512 Z" fill="#3f7d36"/>
+            <g stroke="#2f5f28" stroke-width="4" stroke-linecap="round" opacity="0.55">
+                <line x1="256" y1="404" x2="-40" y2="512"/>
+                <line x1="256" y1="404" x2="70" y2="512"/>
+                <line x1="256" y1="404" x2="165" y2="512"/>
+                <line x1="256" y1="404" x2="256" y2="512"/>
+                <line x1="256" y1="404" x2="347" y2="512"/>
+                <line x1="256" y1="404" x2="442" y2="512"/>
+                <line x1="256" y1="404" x2="552" y2="512"/>
+            </g>
+            <g>
+                <line x1="160" y1="256" x2="138" y2="452" stroke="#7a4a22" stroke-width="12" stroke-linecap="round"/>
+                <path d="M132 452 q-26 0 -36 22 l36 11 q4 -22 11 -31 Z" fill="#5b5b5b"/>
+                <path d="M188 350 q-5 0 -8 5 l-12 98 q-1 9 9 10 q9 1 11 -7 l10 -92 Z" fill="#3a4a6b"/>
+                <path d="M214 350 q5 0 8 5 l14 97 q1 9 -8 11 q-9 1 -12 -6 l-12 -94 Z" fill="#3a4a6b"/>
+                <ellipse cx="169" cy="468" rx="13" ry="7" fill="#2a3550"/>
+                <ellipse cx="232" cy="468" rx="13" ry="7" fill="#2a3550"/>
+                <path d="M196 290 q-22 -14 -36 -34 l15 -12 q14 19 33 32 Z" fill="#cf7b38"/>
+                <path d="M185 266 q24 -8 46 1 l5 90 q-28 10 -56 0 Z" fill="#d98841"/>
+                <path d="M233 284 q14 14 15 52 l-13 1 q-3 -36 -14 -47 Z" fill="#cf7b38"/>
+                <circle cx="160" cy="256" r="11" fill="#e8b07e"/>
+                <circle cx="241" cy="340" r="8.5" fill="#e8b07e"/>
+                <rect x="202" y="240" width="14" height="16" fill="#e8b07e"/>
+                <circle cx="209" cy="226" r="24" fill="#f0c79a"/>
+                <circle cx="201" cy="224" r="3.4" fill="#3a2a1c"/>
+                <circle cx="217" cy="224" r="3.4" fill="#3a2a1c"/>
+                <path d="M201 234 q8 8 16 0" stroke="#3a2a1c" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+                <path d="M172 214 q37 -22 74 0 q-37 13 -74 0 Z" fill="#e8c873"/>
+                <path d="M192 214 q17 -32 34 0 Z" fill="#e0bd5f"/>
+            </g>
+            <g>
+                <path d="M300 352 q-5 0 -8 5 l-11 96 q-1 9 9 10 q9 1 11 -7 l9 -90 Z" fill="#3a4a6b"/>
+                <path d="M324 352 q5 0 8 5 l13 95 q1 9 -8 11 q-9 1 -12 -6 l-11 -92 Z" fill="#3a4a6b"/>
+                <ellipse cx="282" cy="468" rx="12" ry="7" fill="#2a3550"/>
+                <ellipse cx="342" cy="468" rx="12" ry="7" fill="#2a3550"/>
+                <path d="M298 270 q22 -8 42 1 l5 86 q-26 10 -52 0 Z" fill="#cf5b54"/>
+                <path d="M300 286 q-15 12 -18 54 l15 3 q4 -36 17 -46 Z" fill="#cf5b54"/>
+                <circle cx="292" cy="344" r="9" fill="#e8b07e"/>
+                <path d="M340 286 q19 10 28 34 l-15 8 q-9 -20 -24 -28 Z" fill="#cf5b54"/>
+                <circle cx="362" cy="326" r="9" fill="#e8b07e"/>
+                <path d="M345 332 q17 -8 34 0" stroke="#9c6b3c" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <path d="M344 338 h36 l-5 26 q-13 6 -26 0 Z" fill="#b07a44"/>
+                <circle cx="353" cy="340" r="6.5" fill="#e8533f"/>
+                <circle cx="366" cy="339" r="6.5" fill="#f0a93d"/>
+                <circle cx="378" cy="341" r="6" fill="#e8533f"/>
+                <rect x="315" y="246" width="13" height="16" fill="#e8b07e"/>
+                <circle cx="321" cy="232" r="23" fill="#f0c79a"/>
+                <path d="M298 234 q4 -28 23 -30 q19 2 23 30 q-6 -8 -23 -8 q-17 0 -23 8 Z" fill="#5a3a22"/>
+                <circle cx="321" cy="208" r="9" fill="#5a3a22"/>
+                <circle cx="313" cy="231" r="3.3" fill="#3a2a1c"/>
+                <circle cx="329" cy="231" r="3.3" fill="#3a2a1c"/>
+                <path d="M313 240 q8 8 16 0" stroke="#3a2a1c" stroke-width="3.3" fill="none" stroke-linecap="round"/>
+                <circle cx="307" cy="236" r="3.6" fill="#e9a78f" opacity="0.7"/>
+                <circle cx="335" cy="236" r="3.6" fill="#e9a78f" opacity="0.7"/>
+            </g>
+        </svg>
+        <div style="margin-top:28px;width:38px;height:38px;border:4px solid rgba(21,128,61,.2);border-top-color:#15803d;border-radius:50%;animation:bootspin 0.8s linear infinite;"></div>
+        <div style="margin-top:18px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:15px;color:#15803d;font-weight:600;letter-spacing:.02em;">载入中… Loading…</div>
+        <style>@keyframes bootspin{to{transform:rotate(360deg)}}</style>
+    </div>
+    <script>
+        // Boot-screen control. Defined inline so it is available the moment the
+        // page parses, independent of the module script and any CDN asset.
+        (function () {
+            window.hideBootScreen = function () {
+                var el = document.getElementById('boot-screen');
+                if (!el) return;
+                el.style.opacity = '0';
+                setTimeout(function () {
+                    if (el && el.parentNode) el.parentNode.removeChild(el);
+                }, 450);
+            };
+            // Safety net: if initApp() never reaches its hide call (slow CDN,
+            // thrown error before our catch, etc.) clear the loader anyway so
+            // the user is never trapped behind it.
+            setTimeout(function () {
+                if (window.hideBootScreen) window.hideBootScreen();
+            }, 12000);
+        })();
+    </script>
 
     <!-- Toast UI -->
     <div id="toast" class="toast-notification">
@@ -2017,6 +2121,9 @@
                 if(le) le.scrollTop = 0;
 
                 renderList(); updateLunarDate(); updateModelUI(); syncUI();
+
+                // First paint of the real UI is done — clear the boot screen.
+                if (window.hideBootScreen) window.hideBootScreen();
                 
                 try {
                     await signInAnonymously(auth);
@@ -2024,7 +2131,11 @@
                     console.warn("Auth failed:", err);
                 }
                 
-            } catch (err) { console.error("Init Error:", err); }
+            } catch (err) {
+                console.error("Init Error:", err);
+                // Ensure the loader clears even if init threw before the hide call above.
+                if (window.hideBootScreen) window.hideBootScreen();
+            }
             initGestures();
         }
 
