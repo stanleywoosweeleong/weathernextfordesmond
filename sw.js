@@ -14,7 +14,7 @@
 // preserved), seed version dm-arch1. bump CACHE_VERSION on each release
 // ============================================================
 
-const CACHE_VERSION = 'wnext-weathernextfordesmond-202606040000';
+const CACHE_VERSION = 'wnext-weathernextfordesmond-202606041207';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const WEATHER_CACHE = `${CACHE_VERSION}-weather`;
