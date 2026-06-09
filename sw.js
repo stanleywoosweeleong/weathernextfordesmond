@@ -43,7 +43,7 @@
 // / Dense fog in the morning / Kabus tebal waktu pagi). Identity (no-location
 // -name AI prompt, weathernextfordesmond) unchanged.
 
-const CACHE_VERSION = 'wnext-weathernextfordesmond-202606082359';
+const CACHE_VERSION = 'wnext-weathernextfordesmond-202606091330';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const WEATHER_CACHE = `${CACHE_VERSION}-weather`;
